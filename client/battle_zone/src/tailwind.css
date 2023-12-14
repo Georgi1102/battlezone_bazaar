@@ -1,0 +1,57 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* body {
+  background-image: url('./components/home/camopattern.jpg');
+  background-size: cover;
+} */
+
+/* Custom Colors */
+.bg-camo-green {
+  background-color: rgb(83, 92, 34);
+}
+
+.text-camo-green {
+  color: #4b5320;
+}
+
+.bg-camo-brown {
+  background-color: #8b4513;
+}
+
+.text-camo-brown {
+  color: #8b4513;
+}
+
+.bg-camo-tan {
+  background-color: #d2b48c;
+}
+
+.text-camo-tan {
+  color: #d2b48c;
+}
+
+.bg-navy-blue {
+  background-color: #004080;
+}
+
+.text-navy-blue {
+  color: #004080;
+}
+
+.bg-orange {
+  background-color: #96702a;
+}
+
+.text-orange {
+  color: #ffa500;
+}
+
+.bg-gray {
+  background-color: #808080;
+}
+
+.text-gray {
+  color: #808080;
+}
