@@ -23,12 +23,10 @@ public class ProductService implements IProductService {
 
     @Override
     public Product saveProduct(ProductDto dto) {
-//        Optional<Product> dbObject = productRepository.findProductByName(dto.name());
-//        String name;
-//        name = dbObject.map(Product::getName).orElse(null);
-//        Product product = productMapper.convertDtoToEntity(dto, name);
-      //  return productRepository.saveAndFlush(product);
-
-        return new Product();
+        Optional<Product> dbObject = productRepository.findProductByName(dto.name());
+        String name;
+        name = dbObject.map(Product::getName).orElse(null);
+        Product product = productMapper.convertDtoToEntity(dto, name);
+        return productRepository.saveAndFlush(product);
     }
 }

@@ -9,11 +9,10 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ProductMapper {
     @Mapping(target = "name", source = "dto.name")
-    @Mapping(target = "qualityGroup", source = "dto.qualityGroup")
     @Mapping(target = "description", source = "dto.description")
     @Mapping(target = "quantity", source = "dto.quantity")
     @Mapping(target = "price", source = "dto.price")
-    @Mapping(target = "technicalParameters", source = "dto.technicalParameters")
     @Mapping(target = "imageUrl", source = "dto.imageUrl")
     Product convertDtoToEntity(ProductDto dto, String name);
+
 }
