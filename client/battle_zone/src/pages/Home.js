@@ -4,9 +4,9 @@ import BestSellers from "../components/BestSellers";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-camo-tan">
+    <div className="flex flex-col min-h-screen bg-black">
       <NavigationBar></NavigationBar>
-      <div className=" bg-camo-green pt-5 mb-8 text-center">
+      <div className=" bg-black pt-5 mb-8 text-center">
         <h2 className="text-5xl text-white font-semibold">Welcome to BattleZone Bazaar</h2>
         <p className="text-white text-2xl m-14 mb-10">
           At BattleZone, we are passionate about providing high-quality
@@ -16,9 +16,9 @@ export default function Home() {
         </p>
       </div>
       <BestSellers></BestSellers>
-      <footer className="bg-orange text-white p-4 mt-auto">
+      <footer className="bg-black border-t-2 border-t-red-600 text-red p-4 mt-auto">
         <div className="container mx-auto text-center">
-          <p>&copy; 2023 Airsoft Shop. All rights reserved.</p>
+          <p>&copy; 2023 BattleZone Shop. All rights reserved.</p>
         </div>
       </footer>
     </div>

@@ -2,12 +2,15 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* body {
-  background-image: url('./components/home/camopattern.jpg');
-  background-size: cover;
-} */
-
 /* Custom Colors */
+.bg-black{      
+  background-color: #03080d;
+}
+
+.text-red{
+  color: #f41014;
+}
+
 .bg-camo-green {
   background-color: rgb(83, 92, 34);
 }
