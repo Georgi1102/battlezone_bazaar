@@ -2,6 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.img_container{
+  background-image: url("./images/backgroundSpecialForces.jpg");
+}
+
 /* Custom Colors */
 .bg-black{      
   background-color: #03080d;
