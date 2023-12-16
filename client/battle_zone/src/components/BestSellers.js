@@ -2,7 +2,7 @@ const ProductCard = ({ title, description }) => (
   <div className="bg-camo-green p-4 rounded mb-4 text-white">
     <h3 className="text-xl font-semibold mb-2">{title}</h3>
     <p className="text-white">{description}</p>
-    <button className="mt-4 bg-orange text-white px-4 py-2 rounded-md">
+    <button className="mt-4 bg-orange text-withe px-4 py-2 rounded-md">
       Add to Cart
     </button>
   </div>
