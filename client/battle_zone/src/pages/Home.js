@@ -15,7 +15,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="mt-44">
+      <div>
         <BestSellers />
       </div>
 
