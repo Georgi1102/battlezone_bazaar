@@ -11,7 +11,7 @@ const ProductCard = ({ title, description }) => (
 export default function BestSellers() {
   return (
     <div
-      className=" container mx-auto mt-8"
+      className=" container mx-auto sm:mt-10 md:mt-32 lg:mt-48 xl:mt-56"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Product Cards */}
