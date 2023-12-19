@@ -22,4 +22,16 @@ public class Product {
     private Integer price;
     @Column(name = "imageUrl")
     private String imageUrl;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @OneToOne(mappedBy = "product")
+    private BestSeller bestSeller;
+
+    @ManyToOne
+    @JoinColumn(name = "qualityGroup_id")
+    private QualityGroup qualityGroup;
+
 }
