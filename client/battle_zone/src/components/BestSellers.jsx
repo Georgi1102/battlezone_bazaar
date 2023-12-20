@@ -1,4 +1,8 @@
-const ProductCard = ({ title, description, imageUrl }) => (
+import ak47 from "../images/ak47.jpg";
+import m4a1 from "../images/m4a1.jpg";
+import sniper from "../images/sniper.png";
+
+const ProductCard = ({ title, description, image }) => (
   <div className="bg-camo-green p-4 rounded mb-4 text-white relative">
     <h3 className="text-xl font-semibold mb-2">{title}</h3>
     <p className="text-white">{description}</p>
@@ -8,10 +12,9 @@ const ProductCard = ({ title, description, imageUrl }) => (
       </span>
     </button>
     {/* Image box to the right */}
-    <div
-      className="absolute top-2.5 right-6 w-44 h-32 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${imageUrl})` }}
-    ></div>
+    <img className="absolute top-2.5 right-6 w-44 h-32 bg-cover bg-center bg-no-repeat"
+      src={image}
+    ></img>
   </div>
 );
 
@@ -23,17 +26,17 @@ export default function BestSellers() {
         <ProductCard
           title="Product 1"
           description="Description of Product 1."
-          imageUrl="battle_zone\src\images\m4a1.jpg"
+          image={m4a1}
         />
         <ProductCard
           title="Product 2"
           description="Description of Product 2."
-          imageUrl="battle_zone\src\images\ak47.jpg"
+          image={ak47}
         />
         <ProductCard
           title="Product 3"
           description="Description of Product 3."
-          imageUrl="battle_zone\src\images\SniperRifle.png"
+          image={sniper}
         />
       </div>
     </div>
