@@ -1,7 +1,10 @@
 import React from "react";
 import "../style.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+    const navigate = useNavigate();
+
     return (
         <div className="w-full h-full flex justify-center items-center">
             <div className="w-[30vw] h-[40vh] bg-dark-gray rounded-lg flex flex-col justify-evenly" >
@@ -16,7 +19,13 @@ export default function Login() {
                     <button className=" w-[35%] rounded-md text-white text-xl font-gfsNeohellenicBold bg-green py-1 mt-3 flex justify-center">
                         Log in
                     </button>
-                </div>            
+                    <div className="mt-3 flex flex-row space-x-1">
+                        <div className="text-white">
+                            New here?
+                        </div>
+                        <button onClick={() => navigate("/signUp")} className="text-lime-500">Create an account</button>
+                    </div>
+                </div>             
             </div>
         </div>
     );
