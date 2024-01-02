@@ -8,39 +8,23 @@
 
 /* Fonts */
 @font-face {
-  font-family: logo;
+  font-family: Excluded;
   src: url(../public/fonts/Excludeditalic-jEr99.ttf);
 }
 
 @font-face {
-  font-family: blackOpsOne;
+  font-family: BlackOpsOne;
   src: url(../public/fonts/BlackOpsOne-Regular.ttf);
 }
 
 @font-face {
-  font-family: defaultFont;
+  font-family: GFSNeohellenic-Regular;
   src: url(../public/fonts/GFSNeohellenic-Regular.ttf);
 }
 
 @font-face {
-  font-family: defaultBold;
+  font-family: GFSNeohellenic-Bold;
   src: url(../public/fonts/GFSNeohellenic-Bold.ttf);
-}
-
-.font-logo {
-  font-family: logo;
-}
-
-.font-black-ops-one {
-  font-family: blackOpsOne;
-}
-
-.font-default {
-  font-family: defaultFont;
-}
-
-.font-default-bold {
-  font-family: defaultBold;
 }
 
 /* Custom Colors */
