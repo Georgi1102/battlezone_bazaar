@@ -48,6 +48,18 @@
   background-color: #000000;
 }
 
+.bg-dark-gray{      
+  background-color: rgb(18, 18, 18, 0.75);
+}
+
+.bg-white-transparent{      
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bg-green{      
+  background-color: rgba(115, 162, 26);
+}
+
 .text-red{
   color: #f41014;
 }
