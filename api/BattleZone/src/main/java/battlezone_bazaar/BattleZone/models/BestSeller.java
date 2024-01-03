@@ -13,11 +13,11 @@ public class BestSeller {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "mounth")
-    private String mounth;
+    @Column(name = "month")
+    private int month;
 
     @Column(name = "year")
-    private String year;
+    private int year;
 
     @OneToOne
     @JoinColumn(name = "product_id")
