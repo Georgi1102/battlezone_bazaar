@@ -29,4 +29,17 @@ public class ProductService implements IProductService {
         Product product = productMapper.convertDtoToEntity(dto, name);
         return productRepository.saveAndFlush(product);
     }
+
+    @Override
+    public boolean deleteProduct(String name, String manufacturer) {
+        Optional<Product> optionalProduct = productRepository.findProductByNameAndManufacturer(name, manufacturer);
+        if (optionalProduct.isPresent()) {
+            productRepository.delete(optionalProduct.get());
+            return true;
+        }
+        // If the product is not in the database, return false
+        return false;
+    }
+
+
 }

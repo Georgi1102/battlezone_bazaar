@@ -8,4 +8,5 @@ import java.util.List;
 public interface IProductService {
     public List<Product> getAllProducts();
     public Product saveProduct(ProductDto dto);
+    public boolean deleteProduct(String name, String manufacturer);
 }

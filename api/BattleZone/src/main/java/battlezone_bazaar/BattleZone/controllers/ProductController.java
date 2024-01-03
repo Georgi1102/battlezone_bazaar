@@ -24,4 +24,12 @@ public class ProductController {
         Product productSave = productService.saveProduct(dto);
         return  new ResponseEntity<>(productSave, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/remove")
+    public ResponseEntity<?> removeProduct(@RequestParam String name, @RequestParam String manufacturer){
+        if(this.productService.deleteProduct(name, manufacturer)){
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Item not found!", HttpStatus.NOT_FOUND);
+    }
 }
