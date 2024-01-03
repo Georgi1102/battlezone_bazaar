@@ -9,6 +9,7 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ProductMapper {
     @Mapping(target = "name", source = "dto.name")
+    @Mapping(target = "manufacturer", source = "dto.manufacturer")
     @Mapping(target = "description", source = "dto.description")
     @Mapping(target = "quantity", source = "dto.quantity")
     @Mapping(target = "price", source = "dto.price")
