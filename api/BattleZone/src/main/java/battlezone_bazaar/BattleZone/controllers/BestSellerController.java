@@ -24,10 +24,18 @@ public class BestSellerController {
     @PostMapping("/create")
     public ResponseEntity<?> createBestSeller(@RequestParam String name, @RequestParam String manufacturer)
     {
-
         if(this.bestSellerService.addBestSeller(name, manufacturer)){
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>("Item not found!", HttpStatus.NOT_FOUND);
     }
+
+    @DeleteMapping("/remove")
+    public ResponseEntity<?> removeBestSeller(@RequestParam Integer month, @RequestParam Integer year ){
+            if(this.bestSellerService.removeBestSeller(month, year)){
+               return new ResponseEntity<>(HttpStatus.OK);
+            }
+            return new ResponseEntity<>("Item not found!", HttpStatus.NOT_FOUND);
+    }
+
 }

@@ -54,7 +54,15 @@ public class BestSellerService implements IBestSellerService {
         }
     }
     @Override
-    public BestSeller removeBestSeller(long bestSellerId){
-        return null;
+    public boolean removeBestSeller(Integer month, Integer year){
+        Optional<BestSeller> entityToDelete = bestSellerRepository.findByMonthAndYear(month, year);
+
+        if (entityToDelete.isPresent()) {
+            bestSellerRepository.delete(entityToDelete.get());
+            return true;
+        }
+        // If the bestseller is not in the database, return false
+        return false;
+
     }
 }

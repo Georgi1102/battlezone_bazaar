@@ -14,10 +14,10 @@ public class BestSeller {
     private Long id;
 
     @Column(name = "month")
-    private int month;
+    private Integer month;
 
     @Column(name = "year")
-    private int year;
+    private Integer year;
 
     @OneToOne
     @JoinColumn(name = "product_id")

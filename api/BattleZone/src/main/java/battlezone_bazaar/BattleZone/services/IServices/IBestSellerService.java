@@ -8,5 +8,5 @@ import java.util.List;
 public interface IBestSellerService {
     public List<BestSeller> getAllBestSellers();
     public boolean addBestSeller(String name, String manufacturer);
-    public BestSeller removeBestSeller(long bestSellerId);
+    public boolean removeBestSeller(Integer month, Integer year);
 }

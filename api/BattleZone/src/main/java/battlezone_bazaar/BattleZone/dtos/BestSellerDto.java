@@ -1,4 +1,4 @@
 package battlezone_bazaar.BattleZone.dtos;
 
-public record BestSellerDto(int month, int year) {
+public record BestSellerDto(Integer month, Integer year) {
 }
