@@ -7,7 +7,7 @@ import ProductDetails from "./pages/ProductDetails.jsx";
 
 function App() {
   return (
-    <div className="App" style={{width: "100vw", height: "100vh"}}>
+    <div className="App" style={{maxWidth: "100vw", maxHeight: "100vh"}}>
       <Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />

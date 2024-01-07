@@ -1,5 +1,5 @@
 body {
-    background-image: url('./images/backgroundSpecialForces.jpg');
+    /* background-image: url('./images/backgroundSpecialForces.jpg'); */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -7,6 +7,16 @@ body {
     padding: 0;
 }
 
-.login-input{
-    
+.login-input {}
+
+.text-hover:hover {
+    color: red;
+    text-decoration: underline;
 }
+
+.carousel-container {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(45, 48, 48, 1) 55%, rgba(103, 108, 110, 1) 75%, rgba(196, 196, 196, 1) 100%);
+}
+
+.carousel-item {}
