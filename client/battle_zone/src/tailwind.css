@@ -89,6 +89,13 @@
   background-color: rgba(115, 162, 26);
 }
 
+.bg-forum-img {
+  background-image: url("./images/fotor-202401040410.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .text-red{
   color: #f41014;
 }
