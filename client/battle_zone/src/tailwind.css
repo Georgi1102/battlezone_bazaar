@@ -97,6 +97,12 @@
   background-attachment: fixed;
 }
 
+.bg-special-forces {
+  background-image: url('./images/backgroundSpecialForces.jpg');
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .text-red{
   color: #f41014;
 }
