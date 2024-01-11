@@ -53,7 +53,7 @@ export default function SingleProduct() {
                                 <button onClick = {incrementHandler} className="w-10">+</button>
                             </div>
                             <p className="mt-10 font-gfsNeohellenicRegular text-white text-2xl">{product.description}</p>
-                            <button className="mt-7 w-48 rounded-md text-white text-xl font-gfsNeohellenicBold bg-green py-1 mt-3 flex justify-center">Add to Cart</button>
+                            <button className="mt-7 w-48 rounded-md text-white text-xl font-gfsNeohellenicBold bg-green py-1 flex justify-center">Add to Cart</button>
                         </div>
                     </div>
                 </div>
