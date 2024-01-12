@@ -1,5 +1,6 @@
 package battlezone_bazaar.BattleZone.services;
 
+import battlezone_bazaar.BattleZone.dtos.CategoryDto;
 import battlezone_bazaar.BattleZone.dtos.ProductDto;
 import battlezone_bazaar.BattleZone.mappers.ProductMapper;
 import battlezone_bazaar.BattleZone.models.Product;
@@ -41,5 +42,17 @@ public class ProductService implements IProductService {
         return false;
     }
 
+    @Override
+    public void saveProductIterational(List<ProductDto> records) {
+        try {
+            for (ProductDto record:
+                    records) {
+                this.saveProduct(record);
+            }
+        }catch (Exception e){
+            throw e;
+        }
+
+    }
 
 }

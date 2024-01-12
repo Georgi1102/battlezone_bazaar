@@ -8,5 +8,5 @@ import java.util.List;
 public interface ICategoryService {
     public boolean saveCategory(CategoryDto categoryDto);
 
-    public void saveCategoryInterational(List<CategoryDto> records);
+    public void saveCategoryIterational(List<CategoryDto> records);
 }

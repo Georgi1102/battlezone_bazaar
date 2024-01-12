@@ -65,4 +65,15 @@ public class BestSellerService implements IBestSellerService {
         return false;
 
     }
+    @Override
+    public void saveBestSellersIterational(List<ProductDto> records) {
+        try {
+            for (ProductDto record :
+                    records) {
+                this.addBestSeller(record.name(), record.manufacturer());
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

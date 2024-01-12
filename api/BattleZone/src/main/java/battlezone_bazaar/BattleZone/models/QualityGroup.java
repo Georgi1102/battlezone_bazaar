@@ -1,8 +1,8 @@
 package battlezone_bazaar.BattleZone.models;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -20,5 +20,7 @@ public class QualityGroup {
     private String parameters;
 
     @OneToMany(mappedBy = "qualityGroup")
-    private Set<Product> products;
+    private Set<Product> products = new HashSet<>(); // Initialize the set
+
 }
+

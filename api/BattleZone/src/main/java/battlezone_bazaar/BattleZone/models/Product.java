@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "product")
+@Table(name = "product", uniqueConstraints = @UniqueConstraint(columnNames = {"name", "manufacturer"}))
 @Data
 public class Product {
     @Id

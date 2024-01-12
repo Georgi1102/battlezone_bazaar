@@ -30,7 +30,7 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public void saveCategoryInterational(List<CategoryDto> records) {
+    public void saveCategoryIterational(List<CategoryDto> records) {
         try {
             for (CategoryDto record:
                     records) {
