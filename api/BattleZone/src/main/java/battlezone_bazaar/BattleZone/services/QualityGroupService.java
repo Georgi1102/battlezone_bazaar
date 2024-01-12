@@ -1,7 +1,10 @@
 package battlezone_bazaar.BattleZone.services;
 
+import battlezone_bazaar.BattleZone.dtos.CategoryDto;
 import battlezone_bazaar.BattleZone.dtos.ProductDto;
 import battlezone_bazaar.BattleZone.dtos.QualityGroupDto;
+import battlezone_bazaar.BattleZone.mappers.QualityGroupMapper;
+import battlezone_bazaar.BattleZone.models.Category;
 import battlezone_bazaar.BattleZone.models.Product;
 import battlezone_bazaar.BattleZone.models.QualityGroup;
 import battlezone_bazaar.BattleZone.repositories.ProductRepository;
@@ -18,46 +21,33 @@ import java.util.Optional;
 public class QualityGroupService implements IQualityGroupService {
     private final QualityGroupRepository qualityGroupRepository;
     private final ProductRepository productRepository;
+    private final QualityGroupMapper qualityGroupMapper;
 
     @Override
-    public void saveQualityGroup(String name, String manufacturer, String material, String parameters) {
-        Optional<Product> listedProduct = productRepository.findProductByNameAndManufacturer(name, manufacturer);
+    public boolean saveQualityGroup(QualityGroupDto qualityGroupDto ) {
+        Optional<QualityGroup> existingGroup = qualityGroupRepository.findQualityGroupByMaterial(qualityGroupDto.material());
 
-        if (listedProduct.isPresent()) {
-            Product product = listedProduct.get();
+        String material = existingGroup.map(QualityGroup::getMaterial).orElse(null);
+        QualityGroup qualityGroup = qualityGroupMapper.convertDtoToEntity(qualityGroupDto, material);
 
-            QualityGroup existingQualityGroup = qualityGroupRepository.findByProductsAndMaterialAndParameters(product, material, parameters);
-
-            if (existingQualityGroup == null) {
-                // Create a new QualityGroup and associate it with the product
-                QualityGroup qualityGroup = new QualityGroup();
-                qualityGroup.setMaterial(material);
-                qualityGroup.setParameters(parameters);
-
-                // Set the product for the quality group
-                qualityGroup.getProducts().add(product);
-
-                // Set the quality group for the product
-                product.setQualityGroup(qualityGroup);
-
-                // Save both QualityGroup and Product to the database
-                qualityGroupRepository.save(qualityGroup);
-                productRepository.save(product);
-            }
+        if (existingGroup.isPresent()) {
+            return false;
         }
+        qualityGroupRepository.save(qualityGroup);
+        return true;
     }
 
 
     @Override
-    public void saveQualityGroupIterational(List<ProductDto> productDtos, List<QualityGroupDto> qualityGroupDtos) {
+    public void saveQualityGroupIterational(List<QualityGroupDto> records) {
         try {
-            for (ProductDto product : productDtos) {
-                for (QualityGroupDto qualityGroup : qualityGroupDtos) {
-                    this.saveQualityGroup(product.name(), product.manufacturer(), qualityGroup.material(), qualityGroup.parameters());
-                }
+            for (QualityGroupDto record:
+                    records) {
+                this.saveQualityGroup(record);
             }
-        } catch (Exception e) {
+        }catch (Exception e){
             throw e;
         }
+
     }
 }

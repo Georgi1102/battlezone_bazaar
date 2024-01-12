@@ -12,6 +12,6 @@ import org.mapstruct.MappingConstants;
 public interface QualityGroupMapper {
     @Mapping(target = "material", source = "dto.material")
     @Mapping(target = "parameters", source = "dto.parameters")
-    QualityGroup convertDtoToEntity(QualityGroupDto dto, String name);
+    QualityGroup convertDtoToEntity(QualityGroupDto dto, String material);
 }
 

@@ -45,10 +45,8 @@ public class DataInitializer implements ApplicationRunner {
             );
             List<QualityGroupDto> mainQualityGroups = new ArrayList<>(
                     List.of(
-                            new QualityGroupDto("plastic", "1.2"),
-                            new QualityGroupDto("plastic", "1.0"),
-                            new QualityGroupDto("metal", "1.5"),
-                            new QualityGroupDto("metal", "2.0")
+                            new QualityGroupDto("polymer", "2.0"),
+                            new QualityGroupDto("aluminium", "2.5")
                     )
             );
             List<ProductDto> starterProducts = new ArrayList<>(
@@ -61,7 +59,7 @@ public class DataInitializer implements ApplicationRunner {
 
             categoryService.saveCategoryIterational(generalCategories);
             productService.saveProductIterational(starterProducts);
-            qualityGroupService.saveQualityGroupIterational(starterProducts, mainQualityGroups);
+            qualityGroupService.saveQualityGroupIterational(mainQualityGroups);
             bestSellerService.saveBestSellersIterational(starterProducts);
 
             logger.info("Data Initialization Completed");

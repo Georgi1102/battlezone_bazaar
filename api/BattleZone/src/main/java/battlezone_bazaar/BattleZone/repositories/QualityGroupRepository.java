@@ -1,5 +1,6 @@
 package battlezone_bazaar.BattleZone.repositories;
 
+import battlezone_bazaar.BattleZone.models.Category;
 import battlezone_bazaar.BattleZone.models.Product;
 import battlezone_bazaar.BattleZone.models.QualityGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,5 +13,6 @@ public interface QualityGroupRepository extends JpaRepository<QualityGroup, Long
     Optional<QualityGroup> findQualityGroupByMaterial(String material);
     Optional<QualityGroup> findQualityGroupByParameters(String parameters);
     QualityGroup findByProductsAndMaterialAndParameters(Product product, String material, String parameters);
+
 }
 

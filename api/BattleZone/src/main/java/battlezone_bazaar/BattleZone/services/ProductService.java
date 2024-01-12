@@ -28,6 +28,9 @@ public class ProductService implements IProductService {
         String name;
         name = dbObject.map(Product::getName).orElse(null);
         Product product = productMapper.convertDtoToEntity(dto, name);
+        if (dbObject.isPresent()) {
+            return null;
+        }
         return productRepository.saveAndFlush(product);
     }
 
