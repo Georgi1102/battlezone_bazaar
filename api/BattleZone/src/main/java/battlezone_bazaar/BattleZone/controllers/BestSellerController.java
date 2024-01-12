@@ -16,7 +16,7 @@ public class BestSellerController {
     private final BestSellerService bestSellerService;
 
     @GetMapping("/get-all")
-    public List<BestSeller> getAllBestSellers (BestSellerService bestSellerService)
+    public List<BestSeller> getAllBestSellers ()
     {
         return bestSellerService.getAllBestSellers();
     }

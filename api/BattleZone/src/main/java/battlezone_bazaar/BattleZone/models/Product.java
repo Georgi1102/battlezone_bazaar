@@ -1,5 +1,6 @@
 package battlezone_bazaar.BattleZone.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -25,13 +26,16 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonIgnore
     private Category category;
 
     @OneToOne(mappedBy = "product")
+    @JsonIgnore
     private BestSeller bestSeller;
 
     @ManyToOne
     @JoinColumn(name = "qualityGroup_id")
+    @JsonIgnore
     private QualityGroup qualityGroup;
 
 }

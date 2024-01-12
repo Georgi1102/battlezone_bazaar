@@ -16,7 +16,7 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
     @GetMapping("/get-all")
-    public List<Product> getProducts(){
+    public List<Product> getProducts() {
         return productService.getAllProducts();
     }
     @PostMapping("/save")
