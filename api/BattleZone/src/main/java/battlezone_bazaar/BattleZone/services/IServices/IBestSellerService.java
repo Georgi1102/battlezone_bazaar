@@ -9,6 +9,6 @@ import java.util.List;
 public interface IBestSellerService {
     public List<BestSeller> getAllBestSellers();
     public boolean addBestSeller(String name, String manufacturer);
-    public boolean removeBestSeller(Integer month, Integer year);
+    public boolean removeBestSeller(String name, String manufacturer,Integer month, Integer year);
     public void saveBestSellersIterational(List<ProductDto> records);
 }

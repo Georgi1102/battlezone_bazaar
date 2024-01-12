@@ -31,8 +31,8 @@ public class BestSellerController {
     }
 
     @DeleteMapping("/remove")
-    public ResponseEntity<?> removeBestSeller(@RequestParam Integer month, @RequestParam Integer year ){
-            if(this.bestSellerService.removeBestSeller(month, year)){
+    public ResponseEntity<?> removeBestSeller(@RequestParam String name, @RequestParam String manufacturer,@RequestParam Integer month, @RequestParam Integer year ){
+            if(this.bestSellerService.removeBestSeller(name,manufacturer,month, year)){
                return new ResponseEntity<>(HttpStatus.OK);
             }
             return new ResponseEntity<>("Item not found!", HttpStatus.NOT_FOUND);

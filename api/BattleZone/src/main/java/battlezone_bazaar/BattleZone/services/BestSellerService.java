@@ -54,16 +54,21 @@ public class BestSellerService implements IBestSellerService {
         }
     }
     @Override
-    public boolean removeBestSeller(Integer month, Integer year){
-        Optional<BestSeller> entityToDelete = bestSellerRepository.findByMonthAndYear(month, year);
+    public boolean removeBestSeller(String name, String manufacturer,Integer month, Integer year){
+        Optional<Product> listedProduct = productRepository.findProductByNameAndManufacturer(name, manufacturer);
 
-        if (entityToDelete.isPresent()) {
-            bestSellerRepository.delete(entityToDelete.get());
-            return true;
+        if (listedProduct.isPresent()) {
+            Product product = listedProduct.get();
+            BestSeller existingBestSeller = bestSellerRepository.findByProductAndMonthAndYear(product, month, year);
+            Optional<BestSeller> entityToDelete = bestSellerRepository.findById(existingBestSeller.getId());
+            if (entityToDelete.isPresent()) {
+                bestSellerRepository.delete(entityToDelete.get());
+                return true;
+            }
+            return false;
         }
         // If the bestseller is not in the database, return false
         return false;
-
     }
     @Override
     public void saveBestSellersIterational(List<ProductDto> records) {
