@@ -38,6 +38,7 @@ export default function SingleProduct() {
         <div className="bg-gray flex flex-col min-h-screen">
             <NavigationBar></NavigationBar>
             <div className="p-3 max-w-7x1 m-auto">
+                <h1 className="text-5xl">UNDER CONSTRUCTION!!!</h1>
                 <div className="mt-6 sm:mt-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 mx-8 gap-6 h-max">
                         <div>
