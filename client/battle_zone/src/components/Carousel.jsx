@@ -1,24 +1,10 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from 'react-router-dom';
 
 const Carousel = (props) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    const goToNextSlide = () => {
-        if (currentIndex === props.slides.length - 1) {
-            setCurrentIndex(0);
-        } else {
-            setCurrentIndex(currentIndex + 1);
-        }
-    }
-
-    const goToPrevSlide = () => {
-        if (currentIndex === 0) {
-            setCurrentIndex(props.slides.length - 1);
-        } else {
-            setCurrentIndex(currentIndex - 1);
-        }
-    }
+    const navigate = useNavigate()
     const renderSlide = () => {
         if (!props.slides) {
             return
@@ -34,14 +20,14 @@ const Carousel = (props) => {
             <div className='flex flex-row items-center justify-evenly'>
                 {renderSlide()}
                 <div className='flex flex-col justify-evenly h-32 text-2xl text-gray-300'>
-                    <FontAwesomeIcon icon="fa-solid fa-diamond" onClick={() => setCurrentIndex(0)} />
-                    <FontAwesomeIcon icon="fa-solid fa-diamond" onClick={() => setCurrentIndex(1)} />
-                    <FontAwesomeIcon icon="fa-solid fa-diamond" onClick={() => setCurrentIndex(2)} />
+                    <FontAwesomeIcon icon="fa-solid fa-diamond" style={{ color: currentIndex === 0 ? "red" : '' }} onClick={() => setCurrentIndex(0)} />
+                    <FontAwesomeIcon icon="fa-solid fa-diamond" style={{ color: currentIndex === 1 ? "red" : '' }} onClick={() => setCurrentIndex(1)} />
+                    <FontAwesomeIcon icon="fa-solid fa-diamond" style={{ color: currentIndex === 2 ? "red" : '' }} onClick={() => setCurrentIndex(2)} />
                 </div>
             </div>
             <div className='flex flex-row justify-evenly'>
                 <div className='font-blackOpsOne text-6xl text-white'>Model</div>
-                <div className='border-2 w-24 h-12 text-white flex items-center justify-center'>VIEW</div>
+                <div className='border-2 w-24 h-12 text-white flex items-center justify-center' onClick={() => navigate("/products")} style={{cursor: "pointer"}}>VIEW</div>
             </div>
         </div>
     )

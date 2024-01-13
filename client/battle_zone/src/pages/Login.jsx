@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
+import NavigationBar from "../components/NavigationBar";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -17,6 +18,7 @@ export default function Login() {
 
     return (
         <div className="bg-special-forces w-full h-[100vh] flex justify-center items-center">
+            <NavigationBar></NavigationBar>
             <div className="lg:w-[35vw] md:w-[60vw] sm:w-[45vw] py-5 bg-dark-gray rounded-lg flex flex-col justify-evenly" >
                 <form className="h-50 space-y-5 flex flex-col items-center" onSubmit={handleSubmit}>
                     <h1 className="text-white tracking-wider font-gfsNeohellenicBold text-5xl flex justify-center ">

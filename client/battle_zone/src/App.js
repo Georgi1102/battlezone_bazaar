@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx"
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
+import Forum from "./pages/Forum.jsx"
 import ProductDetails from "./pages/ProductDetails.jsx";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -17,7 +18,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
-        <Route path="/products/:productId" element={<ProductDetails />} />
+        <Route path="/products" element={<ProductDetails />} />
+        <Route path="/forum" element={<Forum />} />
       </Routes>
     </div>
   );

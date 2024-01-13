@@ -8,7 +8,7 @@ export default function NavigationBar() {
     <header className="bg-dark-gray-solid opacity-90 text-white p-4 w-full" style={{ position: "fixed", top: 0 }}>
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex flex-row justify-center">
-          <h1 className="text-3xl font-[Excluded]">BattleZone Bazaar</h1>
+          <h1 className="text-3xl font-[Excluded]" onClick={() => navigate("/")} style={{cursor:"pointer"}}>BattleZone Bazaar</h1>
           <span className="star"></span>
         </div>
         <div className="w-40 flex justify-between text-xl">
