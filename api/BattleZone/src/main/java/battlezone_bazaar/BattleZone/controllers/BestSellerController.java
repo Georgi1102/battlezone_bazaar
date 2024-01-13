@@ -16,21 +16,24 @@ public class BestSellerController {
     private final BestSellerService bestSellerService;
 
     @GetMapping("/get-all")
+    @CrossOrigin(origins = "http://localhost:3000")
     public List<BestSeller> getAllBestSellers ()
     {
         return bestSellerService.getAllBestSellers();
     }
 
     @PostMapping("/create")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> createBestSeller(@RequestParam String name, @RequestParam String manufacturer)
     {
-        if(this.bestSellerService.addBestSeller(name, manufacturer)){
+        if(this.bestSellerService.addBestSelleQueryExample(name, manufacturer)){
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>("Item not found!", HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/remove")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> removeBestSeller(@RequestParam String name, @RequestParam String manufacturer,@RequestParam Integer month, @RequestParam Integer year ){
             if(this.bestSellerService.removeBestSeller(name,manufacturer,month, year)){
                return new ResponseEntity<>(HttpStatus.OK);

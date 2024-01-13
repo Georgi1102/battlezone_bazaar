@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import axios from 'axios';
 import ak47 from "../images/ak47.jpg";
 import m4a1 from "../images/m4a1.jpg";
 import sniper from "../images/sniper.png";
@@ -14,25 +16,47 @@ const ProductCard = ({ title, description, price, image }) => (
 );
 
 export default function BestSellers() {
+  const [bestSellers, setBestSellers] = useState([]);
+
+  const fetchBestSellers = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/bestSellers/get-all");
+      console.log(response);
+      setBestSellers(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    if (bestSellers.length === 0) {
+      fetchBestSellers();
+    }
+  }, [bestSellers]);
+
+  if (bestSellers.length < 3) {
+    return null;
+  }
+
   return (
     <div className="flex justify-evenly">
       {/* Product Cards */}
       <ProductCard
-        title="Product 1"
-        description="Description of Product 1."
-        price="350$"
-        image={m4a1}
-      />
-      <ProductCard
-        title="Product 2"
-        description="Description of Product 2."
-        price="400$"
+        title={bestSellers[0]["product"]["name"]}
+        description={bestSellers[0]["product"]["description"]}
+        price={bestSellers[0]["product"]["price"] + "$"}
         image={ak47}
       />
       <ProductCard
-        title="Product 3"
-        description="Description of Product 3."
-        price="450$"
+        title={bestSellers[1]["product"]["name"]}
+        description={bestSellers[1]["product"]["description"]}
+        price={bestSellers[1]["product"]["price"] + "$"}
+        image={m4a1}
+      />
+      <ProductCard
+        title={bestSellers[2]["product"]["name"]}
+        description={bestSellers[2]["product"]["description"]}
+        price={bestSellers[2]["product"]["price"] + "$"}
         image={sniper}
       />
     </div>

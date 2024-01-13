@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.YearMonth;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -79,6 +80,37 @@ public class BestSellerService implements IBestSellerService {
             }
         } catch (Exception e) {
             throw e;
+        }
+    }
+
+    @Override
+    public boolean addBestSelleQueryExample(String name, String manufacturer) {
+        Optional<Product> listedProduct = productRepository.findProductByNameAndManufacturer(name, manufacturer);
+
+        if (listedProduct.isPresent()) {
+            Product product = listedProduct.get();
+
+            YearMonth currentYearMonth = YearMonth.now();
+            var year = currentYearMonth.getYear();
+            var month = currentYearMonth.getMonthValue();
+
+            BestSeller existingBestSeller = bestSellerRepository.findByProductAndMonthAndYearQueryExample(product.getId(), month, year);
+
+            if (existingBestSeller == null) {
+                BestSeller bestSeller = new BestSeller();
+                bestSeller.setMonth(month);
+                bestSeller.setYear(year);
+                bestSeller.setProduct(product);
+
+                bestSellerRepository.save(bestSeller);
+
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            // Product not found.
+            return false;
         }
     }
 }

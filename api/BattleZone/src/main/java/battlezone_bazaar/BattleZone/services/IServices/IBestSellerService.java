@@ -11,4 +11,5 @@ public interface IBestSellerService {
     public boolean addBestSeller(String name, String manufacturer);
     public boolean removeBestSeller(String name, String manufacturer,Integer month, Integer year);
     public void saveBestSellersIterational(List<ProductDto> records);
+    public boolean addBestSelleQueryExample(String name, String manufacturer);
 }
