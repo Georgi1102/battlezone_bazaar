@@ -41,12 +41,17 @@ export default function BestSellers() {
   return (
     <div className="flex justify-evenly">
       {/* Product Cards */}
-      <ProductCard
-        title={bestSellers[0]["product"]["name"]}
-        description={bestSellers[0]["product"]["description"]}
-        price={bestSellers[0]["product"]["price"] + "$"}
-        image={ak47}
-      />
+      {
+        bestSellers.map((product) => {
+          <ProductCard
+            title={product[0]["product"]["name"]}
+            description={product[0]["product"]["description"]}
+            price={product[0]["product"]["price"] + "$"}
+            image={ak47}
+          />
+        })
+      }
+
       <ProductCard
         title={bestSellers[1]["product"]["name"]}
         description={bestSellers[1]["product"]["description"]}
