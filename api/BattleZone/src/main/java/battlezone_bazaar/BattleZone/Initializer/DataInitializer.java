@@ -1,12 +1,10 @@
 package battlezone_bazaar.BattleZone.Initializer;
 
 import battlezone_bazaar.BattleZone.dtos.CategoryDto;
+import battlezone_bazaar.BattleZone.dtos.DiscussionDto;
 import battlezone_bazaar.BattleZone.dtos.ProductDto;
 import battlezone_bazaar.BattleZone.dtos.QualityGroupDto;
-import battlezone_bazaar.BattleZone.services.BestSellerService;
-import battlezone_bazaar.BattleZone.services.CategoryService;
-import battlezone_bazaar.BattleZone.services.ProductService;
-import battlezone_bazaar.BattleZone.services.QualityGroupService;
+import battlezone_bazaar.BattleZone.services.*;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +25,7 @@ public class DataInitializer implements ApplicationRunner {
     private final ProductService productService;
     private final BestSellerService bestSellerService;
     private final QualityGroupService qualityGroupService;
+    private final DiscussionService discussionService;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -57,10 +56,19 @@ public class DataInitializer implements ApplicationRunner {
                     )
             );
 
+            List<DiscussionDto> defaultDiscussions = new ArrayList<>(
+                    List.of(
+                            new DiscussionDto("New Rifle", "What do you think about the new G&G rifle?"),
+                            new DiscussionDto("Trigger issue", "My AK has a trigger use and I can not shoot."),
+                            new DiscussionDto("Grenade pin", "Can you tell me from where I can buy a grenade pin?")
+                    )
+            );
+
             categoryService.saveCategoryIterational(generalCategories);
             productService.saveProductIterational(starterProducts);
             qualityGroupService.saveQualityGroupIterational(mainQualityGroups);
             bestSellerService.saveBestSellersIterational(starterProducts);
+            discussionService.saveDiscussions(defaultDiscussions);
 
             logger.info("Data Initialization Completed");
         } catch (Exception e) {
