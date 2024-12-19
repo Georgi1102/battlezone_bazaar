@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useState, useEffect } from "react";
+import { useState} from "react";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
 import NavigationBar from "../components/NavigationBar";
@@ -17,8 +17,6 @@ export default function SignUp() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        console.log(username, email, password);
     }
 
     return (

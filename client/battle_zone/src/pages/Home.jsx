@@ -2,18 +2,18 @@ import React from "react";
 import NavigationBar from "../components/NavigationBar";
 import BestSellers from "../components/BestSellers";
 import "../style.css";
-import ak47 from "../images/ak47.jpg";
-import m4a1 from "../images/m4a1.jpg";
-import sniper from "../images/sniper.png";
+import ak47 from "../images/ak47.png";
+import m4 from "../images/m4.png";
+import awp from "../images/awp.png";
 import pfp from "../images/pfp.jpg";
 import Carousel from "../components/Carousel";
 import Footer from "../components/Footer";
 
 export default function Home() {
   const slides = [
-    <img src={ak47} alt='Slide 1' style={{ width: "600px", height: "400px" }} />,
-    <img src={m4a1} alt='Slide 2' style={{ width: "600px", height: "400px" }} />,
-    <img src={sniper} alt='Slide 3' style={{ width: "600px", height: "400px" }} />
+    <img src={ak47} alt='Slide 1' style={{ maxWidth: "600px", maxHeight: "400px" }} />,
+    <img src={m4} alt='Slide 2' style={{ maxWidth: "600px", maxHeight: "400px" }} />,
+    <img src={awp} alt='Slide 3' style={{ maxWidth: "600px", maxHeight: "400px" }} />,
   ];
 
   const ForumCard = ({ name, description }) => (
@@ -37,12 +37,10 @@ export default function Home() {
           </p>
         </div>
       </div>
-
       <div>
         <Carousel slides={slides}></Carousel>
       </div>
       <div className="bg-forum-img h-[70vh] flex flex-col justify-evenly">
-        <span className="text-white text-3xl font-bold">Popular Products</span>
         <BestSellers />
         <span className="text-white text-3xl font-bold">Forum</span>
         <div className="flex flex-row justify-evenly">

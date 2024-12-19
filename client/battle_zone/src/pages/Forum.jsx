@@ -60,7 +60,8 @@ export default function Forum() {
 
   return (
     <div className="flex bg-forum-img flex-col w-full min-h-screen">
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 text-justify w-3/4">
+      <NavigationBar></NavigationBar>
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 pt-16 text-justify w-3/4">
         <div>
           <h1 className="font-gfsNeohellenicBold text-white text-4xl mt-6 ml-6">
             Discussions

@@ -11,7 +11,6 @@ export default function BestSellers() {
       const response = await axios.get("http://localhost:8080/bestSellers/get-all");
       setBestSellers(response.data);
     } catch (err) {
-      console.log(err);
     }
   };
 

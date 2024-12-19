@@ -12,8 +12,6 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        console.log(username, password);
     }
 
     return (

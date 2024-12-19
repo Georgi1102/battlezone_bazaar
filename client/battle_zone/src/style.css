@@ -20,12 +20,12 @@ body {
 }
 
 .carousel-item {
-    width: 600px;
-    /* height: 500px; */
     max-height: 500px;
     max-width: 600px;
     margin-left: 10px;
     margin-right: 10px;
+    /* background: rgb(84,84,84);
+    background: radial-gradient(circle, rgba(84,84,84,1) 0%, rgba(80,80,80,1) 71%, rgba(25,25,25,1) 100%);  */
 }
 .carousel-button{
     font-size: x-large;
