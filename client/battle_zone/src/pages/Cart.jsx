@@ -54,7 +54,7 @@ export default function Cart() {
     return (
         <div className="bg-gray flex flex-col min-h-screen">
             <NavigationBar></NavigationBar>
-            <div className="p-3 max-w-7x1 pt-16 h-[90vh]">
+            <div className="p-3 max-w-7x1 pt-16 min-h-[90vh]">
                 <header className=" text-white p-4">
                     <h1 className="text-center text-2xl">Your Shopping Cart</h1>
                 </header>
