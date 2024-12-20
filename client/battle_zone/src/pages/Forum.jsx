@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavigationBar from "../components/NavigationBar";
 import Footer from "../components/Footer";
@@ -9,54 +10,20 @@ export default function Forum() {
   const [discussions, setDiscussions] = useState([]);
   const navigate = useNavigate();
 
-  const fetchData = async () => {
-    const mockData = [
-      {
-        id: 1,
-        pfp: pfp,
-        username: "User1",
-        title: "Title 1",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-      },
-      {
-        id: 2,
-        pfp: pfp,
-        username: "User2",
-        title: "Title 2",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-      },
-      {
-        id: 3,
-        pfp: pfp,
-        username: "User3",
-        title: "Title 3",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-      },
-      {
-        id: 4,
-        pfp: pfp,
-        username: "User4",
-        title: "Title 4",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-      },
-      {
-        id: 5,
-        pfp: pfp,
-        username: "User5",
-        title: "Title 5",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-      },
-    ];
-
-    return mockData;
+  const fetchDiscussions = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/discussions/get-all"
+      );
+      return response.data;
+    } catch (err) {}
   };
 
   useEffect(() => {
-    fetchData().then((data) => {
+    fetchDiscussions().then((data) => {
       setDiscussions(data);
     });
   }, []);
-
 
   return (
     <div className="flex bg-forum-img flex-col w-full min-h-screen">
@@ -79,12 +46,15 @@ export default function Forum() {
             key={discussion.id}
             className="bg-dark-gray p-5 rounded-md text-white"
           >
-            <div className="flex flex-cols-2 columns-2xs gap-5">
+
+            {/* removed because there is no user to discussion relation */}
+            
+            {/* <div className="flex flex-cols-2 columns-2xs gap-5">
               <img src={pfp} alt="" className="w-10 rounded-full" />
               <span className="font-gfsNeohellenicRegular text-base text-gray">
                 Posted by {discussion.username}
               </span>
-            </div>
+            </div> */}
             <h2 className="font-gfsNeohellenicBold text-3xl mt-5 mb-2">
               {discussion.title}
             </h2>

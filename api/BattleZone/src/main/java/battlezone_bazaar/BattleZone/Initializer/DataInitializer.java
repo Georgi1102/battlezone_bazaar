@@ -60,7 +60,13 @@ public class DataInitializer implements ApplicationRunner {
                     List.of(
                             new DiscussionDto("New Rifle", "What do you think about the new G&G rifle?"),
                             new DiscussionDto("Trigger issue", "My AK has a trigger use and I can not shoot."),
-                            new DiscussionDto("Grenade pin", "Can you tell me from where I can buy a grenade pin?")
+                            new DiscussionDto("Grenade pin", "Can you tell me from where I can buy a grenade pin?"),
+                            new DiscussionDto("New Bazooka", "What do you think about the new bazooka?"),
+                            new DiscussionDto("Stock issue", "My AK has a stock issue."),
+                            new DiscussionDto("NVG", "Can you tell me from where I can buy a NVG?"),
+                            new DiscussionDto("New Sniper", "What do you think about the new G&G sniper?"),
+                            new DiscussionDto("Sight issue", "My AK has a sight but the aim is off."),
+                            new DiscussionDto("Grenade", "Can you tell me from where I can buy a grenade?")
                     )
             );
 
